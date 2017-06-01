@@ -52,8 +52,8 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN locale-gen ${DWL_LOCAL}
 
 RUN useradd -ms /bin/bash admin
-RUN echo "admin:admin" | chpasswd
-RUN adduser admin sudo
+RUN echo "admin ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/admin
+RUN chmod 0440 /etc/sudoers.d/admin
 
 #configuration static
 COPY ./build/dwl/envvar.sh /dwl/envvar.sh
