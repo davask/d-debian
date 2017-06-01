@@ -41,8 +41,8 @@ echo "# dockerfile
 
 ## LABEL
 
-> dwl.server.os=\"ubuntu ${branch}\"
+> dwl.server.os=\"debian ${branch}\"
 " > ${rootDir}/README.md
 
-echo "README.md generated with ubuntu:${branch}";
+echo "README.md generated with debian:${branch}";
 

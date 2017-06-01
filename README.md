@@ -30,5 +30,5 @@
 
 ## LABEL
 
-> dwl.server.os="ubuntu 14.04"
+> dwl.server.os="debian 8.8"
 

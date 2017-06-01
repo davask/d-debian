@@ -1,9 +1,9 @@
 [
   {
-    "title": "Ubuntu 14.04",
-    "description": "Ubuntu 14.04.5 LTS (Trusty Tahr) image",
-    "logo": "http://www.omgubuntu.co.uk/trusty/assets/tahr.png",
-    "image": "davask/d-ubuntu:14.04",
+    "title": "Debian 8.8",
+    "description": "Debian 8.8 image",
+    "logo": "https://www.open-scap.org/wp-content/uploads/2015/07/debian.png",
+    "image": "davask/d-debian:8.8",
     "ports": [
         "22/tcp"
     ],
@@ -32,7 +32,7 @@
         }
     ],
     "volumes": [
-        "/home/username"
+        "/home/admin"
     ]
   }
 ]

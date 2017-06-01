@@ -9,19 +9,19 @@ buildDir=${4};
 # Dockerfile #
 ##############
 
-echo "FROM ubuntu:${parentBranch}
+echo "FROM debian:${parentBranch}
 MAINTAINER davask <docker@davaskweblimited.com>
 USER root
-LABEL dwl.server.os=\"ubuntu ${branch}\"" > ${rootDir}/Dockerfile
+LABEL dwl.server.os=\"debian ${branch}\"" > ${rootDir}/Dockerfile
 echo '
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
 # declare if by default we keep container running
 ENV DWL_KEEP_RUNNING false
 # declare local
-ENV DWL_LOCAL en_US.UTF-8
-ENV DWL_LOCAL_LANG en_US:en
-RUN locale-gen ${DWL_LOCAL}
+ENV DWL_LOCAL_LANG: en_US:en
+ENV DWL_LOCAL: en_US.UTF-8
+# RUN locale-gen ${DWL_LOCAL}
 ENV LANG ${DWL_LOCAL}
 ENV LANGUAGE ${DWL_LOCAL_LANG}
 ENV LC_ALL ${DWL_LOCAL}
@@ -32,11 +32,11 @@ ENV DWL_USER_PASSWD secret
 # declare main user
 ENV DWL_SSH_ACCESS false
 
-# Update local
-RUN locale-gen ${DWL_LOCAL}
 # Update packages
 RUN apt-get update
 RUN apt-get install -y apt-utils
+RUN apt-get update
+RUN apt-get install -y locales
 RUN apt-get install -y openssl
 RUN apt-get install -y ca-certificates
 RUN apt-get install -y apt-transport-https
@@ -44,7 +44,12 @@ RUN apt-get install -y software-properties-common
 RUN apt-get install -y openssh-server
 RUN apt-get install -y nano
 RUN apt-get install -y wget
+RUN apt-get install -y sudo
+RUN apt-get autoremove -y
 RUN rm -rf /var/lib/apt/lists/*
+
+# Update local
+RUN locale-gen ${DWL_LOCAL}
 
 RUN useradd -ms /bin/bash admin
 RUN echo "admin:admin" | chpasswd
@@ -67,4 +72,4 @@ USER admin
 WORKDIR /home/admin
 ' >> ${rootDir}/Dockerfile
 
-echo "Dockerfile generated with ubuntu:${branch}";
+echo "Dockerfile generated with debian:${branch}";
