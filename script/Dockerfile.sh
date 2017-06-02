@@ -51,7 +51,13 @@ RUN rm -rf /var/lib/apt/lists/*
 # Update local
 RUN locale-gen ${DWL_LOCAL}
 
-RUN useradd -ms /bin/bash admin
+RUN useradd -r \
+--comment "dwl ssh user" \
+--no-create-home \
+--shell /bin/bash \
+--uid 999 \
+--no-user-group \
+admin;
 RUN echo "admin ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/admin
 RUN chmod 0440 /etc/sudoers.d/admin
 
@@ -68,6 +74,7 @@ EXPOSE 22
 
 ENTRYPOINT ["/bin/bash"]
 CMD ["/dwl/init.sh"]
+RUN chown root:sudo -R /dwl
 USER admin
 WORKDIR /home/admin
 ' >> ${rootDir}/Dockerfile
