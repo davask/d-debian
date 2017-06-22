@@ -25,17 +25,18 @@ ENV DWL_SSH_ACCESS false
 RUN apt-get update && \
 apt-get install -y apt-utils
 RUN apt-get update && \
-apt-get install -y locales
-RUN apt-get install -y openssl
-RUN apt-get install -y ca-certificates
-RUN apt-get install -y apt-transport-https
-RUN apt-get install -y software-properties-common
-RUN apt-get install -y openssh-server
-RUN apt-get install -y nano
-RUN apt-get install -y wget
-RUN apt-get install -y sudo
-RUN apt-get autoremove -y
-RUN rm -rf /var/lib/apt/lists/*
+apt-get install -y \
+locales \
+openssl \
+ca-certificates \
+apt-transport-https \
+software-properties-common \
+openssh-server \
+nano \
+wget \
+sudo
+RUN apt-get autoremove -y; \
+rm -rf /var/lib/apt/lists/*
 
 # Update local
 RUN locale-gen ${DWL_LOCAL}
