@@ -12,4 +12,3 @@ echo ">> Os initialized";
 . ${dwlDir}/permission.sh
 echo ">> Permission assigned";
 
-. ${dwlDir}/keeprunning.sh

@@ -5,7 +5,7 @@
     "logo": "https://www.open-scap.org/wp-content/uploads/2015/07/debian.png",
     "image": "davask/d-debian:8.8",
     "ports": [
-        "22/tcp"
+        "6408/tcp"
     ],
     "env": [
         {
@@ -32,7 +32,7 @@
         }
     ],
     "volumes": [
-        "/home/admin"
+        "/home/username"
     ]
   }
 ]

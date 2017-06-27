@@ -5,8 +5,6 @@ LABEL dwl.server.os="debian 8.8"
 
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
-# declare if by default we keep container running
-ENV DWL_KEEP_RUNNING false
 # declare local
 ENV DWL_LOCAL_LANG: en_US:en
 ENV DWL_LOCAL: en_US.UTF-8
@@ -35,6 +33,7 @@ openssh-server \
 nano \
 wget \
 sudo
+
 RUN apt-get autoremove -y; \
 rm -rf /var/lib/apt/lists/*
 
@@ -52,18 +51,22 @@ RUN echo "admin ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/admin
 RUN chmod 0440 /etc/sudoers.d/admin
 
 #configuration static
-COPY ./build/dwl/envvar.sh /dwl/envvar.sh
-COPY ./build/dwl/default/etc/ssh/sshd_config /etc/ssh/sshd_config
-COPY ./build/dwl/user.sh /dwl/user.sh
-COPY ./build/dwl/ssh.sh /dwl/ssh.sh
-COPY ./build/dwl/permission.sh /dwl/permission.sh
-COPY ./build/dwl/keeprunning.sh /dwl/keeprunning.sh
-COPY ./build/dwl/init.sh /dwl/init.sh
+COPY ./build/etc/ssh/sshd_config \
+./build/etc/ssh/sshd_config.factory-defaults \
+/etc/ssh/
 
-EXPOSE 22
+COPY ./build/dwl/envvar.sh \
+./build/dwl/user.sh \
+./build/dwl/ssh.sh \
+./build/dwl/permission.sh \
+./build/dwl/keeprunning.sh \
+./build/dwl/init.sh \
+/dwl/
+
+EXPOSE 6408
 
 ENTRYPOINT ["/bin/bash"]
-CMD ["/dwl/init.sh"]
+CMD ["/dwl/init.sh", "tail -f /dev/null"]
 RUN chown root:sudo -R /dwl
 USER admin
 WORKDIR /home/admin
