@@ -21,9 +21,7 @@ ENV DWL_SSH_ACCESS false
 
 # Update packages
 RUN apt-get update && \
-apt-get install -y apt-utils locales
-RUN locale-gen en_US.UTF-8 && dpkg-reconfigure locales
-
+apt-get install -y apt-utils
 RUN apt-get update && \
 apt-get install -y \
 locales \
@@ -36,8 +34,9 @@ nano \
 wget \
 sudo
 
-RUN apt-get autoremove -y; \
-rm -rf /var/lib/apt/lists/*
+RUN apt-get autoremove -y && \
+apt-get clean \
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 RUN useradd -r \
