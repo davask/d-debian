@@ -5,7 +5,7 @@ LABEL dwl.server.os="debian 8.8"
 
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
-# declare local
+# declare locales
 ENV DWL_LOCAL_LANG en_US:en
 ENV DWL_LOCAL en_US.UTF-8
 ENV LANG en_US.UTF-8
@@ -19,6 +19,11 @@ ENV DWL_USER_PASSWD secret
 # declare main user
 ENV DWL_SSH_ACCESS false
 
+# update locales
+RUN localedef -i en_US -f UTF-8 en_US.UTF-8
+# Update packages
+RUN apt-get update && \
+apt-get install -y locales
 RUN locale-gen en_US.UTF-8 && dpkg-reconfigure locales
 # Update packages
 RUN apt-get update && \
