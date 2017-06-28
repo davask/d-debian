@@ -15,5 +15,5 @@ app:
   net: bridge
   volumes:
     - ./volumes/home/username:/home/username
+
 # export COMPOSE_HTTP_TIMEOUT=600; docker-compose -f /home/dwl/docker-images/base/d-debian/docker-compose.yml up -d
-# https://www.ssllabs.com/ssltest/analyze.html?d=<sub.domain.tld>&latest
