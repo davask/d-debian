@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # declare local
 ENV DWL_LOCAL_LANG: en_US:en
 ENV DWL_LOCAL: en_US.UTF-8
-# RUN locale-gen ${DWL_LOCAL}
+# RUN locale-gen 
 ENV LANG ${DWL_LOCAL}
 ENV LANGUAGE ${DWL_LOCAL_LANG}
 ENV LC_ALL ${DWL_LOCAL}
@@ -66,8 +66,7 @@ COPY ./build/dwl/envvar.sh \
 EXPOSE 6408
 
 ENTRYPOINT ["/bin/bash"]
-CMD ["/dwl/init.sh", "tail -f /dev/null"]
+CMD ["/dwl/init.sh"]
 RUN chown root:sudo -R /dwl
 USER admin
 WORKDIR /home/admin
-
