@@ -20,7 +20,7 @@ ENV DWL_USER_PASSWD secret
 ENV DWL_SSH_ACCESS false
 
 # update locales
-RUN localedef -i en_US -f UTF-8 en_US.UTF-8
+RUN ls /usr/share/i18n/charmaps && localedef -i en_US -f UTF-8 en_US.UTF-8
 # Update packages
 RUN apt-get update && \
 apt-get install -y locales
