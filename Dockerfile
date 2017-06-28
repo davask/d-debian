@@ -8,10 +8,12 @@ ENV DEBIAN_FRONTEND noninteractive
 # declare local
 ENV DWL_LOCAL_LANG en_US:en
 ENV DWL_LOCAL en_US.UTF-8
-# RUN locale-gen ${DWL_LOCAL}
-ENV LANG ${DWL_LOCAL}
-ENV LANGUAGE ${DWL_LOCAL_LANG}
-ENV LC_ALL ${DWL_LOCAL}
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+# Update local
+RUN locale-gen en_US.UTF-8
+
 # declare main user
 ENV DWL_USER_ID 1000
 ENV DWL_USER_NAME username
@@ -37,8 +39,6 @@ sudo
 RUN apt-get autoremove -y; \
 rm -rf /var/lib/apt/lists/*
 
-# Update local
-RUN locale-gen ${DWL_LOCAL}
 
 RUN useradd -r \
 --comment "dwl ssh user" \
