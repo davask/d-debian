@@ -8,15 +8,13 @@ ENV DEBIAN_FRONTEND noninteractive
 # Update packages
 RUN apt-get update && \
 apt-get install -y apt-utils locales
-RUN locale-gen en_US.UTF-8 && dpkg-reconfigure locales
+RUN locale-gen "en_US.UTF-8"
 # declare locales
 ENV DWL_LOCAL_LANG en_US:en
 ENV DWL_LOCAL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
-
-RUN locale
 
 # declare main user
 ENV DWL_USER_ID 1000
