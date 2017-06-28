@@ -67,7 +67,6 @@ EXPOSE 6408
 
 ENTRYPOINT ["/bin/bash"]
 CMD ["/dwl/init.sh"]
-RUN chown root:sudo -R /dwl
 WORKDIR /home/admin
 RUN chown root:sudo -R /dwl
 USER admin
