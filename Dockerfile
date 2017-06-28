@@ -1,4 +1,3 @@
-FROM debian:8.8
 MAINTAINER davask <docker@davaskweblimited.com>
 USER root
 LABEL dwl.server.os="debian 8.8"
