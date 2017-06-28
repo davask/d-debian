@@ -41,7 +41,6 @@ apt-get autoremove -y && \
 apt-get clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-
 RUN useradd -r \
 --comment "dwl ssh user" \
 --no-create-home \
@@ -69,5 +68,6 @@ EXPOSE 6408
 ENTRYPOINT ["/bin/bash"]
 CMD ["/dwl/init.sh"]
 RUN chown root:sudo -R /dwl
-USER admin
 WORKDIR /home/admin
+RUN chown root:sudo -R /dwl
+USER admin
