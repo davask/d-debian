@@ -3,6 +3,7 @@ MAINTAINER davask <docker@davaskweblimited.com>
 USER root
 LABEL dwl.server.os="debian 8.8"
 
+RUN locale-gen en_US.UTF-8
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
 # declare locales
