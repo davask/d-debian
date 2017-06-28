@@ -8,13 +8,14 @@ ENV DEBIAN_FRONTEND noninteractive
 # Update packages
 RUN apt-get update && \
 apt-get install -y apt-utils locales
-RUN locale-gen "en_US.UTF-8"
+RUN sed -i 's|# en_US.UTF-8 UTF-8|en_US.UTF-8 UTF-8|g' /etc/locale.gen && \
+locale-gen "en_US.UTF-8"
 # declare locales
 ENV DWL_LOCAL_LANG en_US:en
 ENV DWL_LOCAL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+# ENV LC_ALL en_US.UTF-8
 
 # declare main user
 ENV DWL_USER_ID 1000
@@ -35,8 +36,9 @@ nano \
 wget \
 sudo
 
-RUN apt-get autoremove -y && \
-apt-get clean \
+RUN apt-get upgrade -y && \
+apt-get autoremove -y && \
+apt-get clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
