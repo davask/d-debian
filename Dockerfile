@@ -19,10 +19,7 @@ ENV DWL_USER_PASSWD secret
 # declare main user
 ENV DWL_SSH_ACCESS false
 
-# Update local
-RUN export LANG="en_US.UTF-8" && apt-get update && \
-apt-get install -y locales
-RUN locale-gen en_US.UTF-8
+RUN locale-gen en_US.UTF-8 && dpkg-reconfigure locales
 # Update packages
 RUN apt-get update && \
 apt-get install -y apt-utils
