@@ -11,8 +11,6 @@ ENV DWL_LOCAL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
-# Update local
-RUN locale-gen en_US.UTF-8
 
 # declare main user
 ENV DWL_USER_ID 1000
@@ -21,6 +19,11 @@ ENV DWL_USER_PASSWD secret
 # declare main user
 ENV DWL_SSH_ACCESS false
 
+# Update packages
+RUN apt-get update && \
+apt-get install -y locales
+# Update local
+RUN locale-gen en_US.UTF-8
 # Update packages
 RUN apt-get update && \
 apt-get install -y apt-utils
