@@ -6,9 +6,9 @@ LABEL dwl.server.os="debian 8.8"
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
 # declare local
-ENV DWL_LOCAL_LANG: en_US:en
-ENV DWL_LOCAL: en_US.UTF-8
-# RUN locale-gen 
+ENV DWL_LOCAL_LANG en_US:en
+ENV DWL_LOCAL en_US.UTF-8
+# RUN locale-gen ${DWL_LOCAL}
 ENV LANG ${DWL_LOCAL}
 ENV LANGUAGE ${DWL_LOCAL_LANG}
 ENV LC_ALL ${DWL_LOCAL}
