@@ -3,6 +3,9 @@ MAINTAINER davask <docker@davaskweblimited.com>
 USER root
 LABEL dwl.server.os="debian 8.8"
 
+# Update packages
+RUN apt-get update && \
+apt-get install -y apt-utils locales
 RUN locale-gen en_US.UTF-8
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
@@ -20,9 +23,6 @@ ENV DWL_USER_PASSWD secret
 # declare main user
 ENV DWL_SSH_ACCESS false
 
-# Update packages
-RUN apt-get update && \
-apt-get install -y apt-utils
 RUN apt-get update && \
 apt-get install -y \
 locales \
