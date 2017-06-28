@@ -3,24 +3,10 @@ MAINTAINER davask <docker@davaskweblimited.com>
 USER root
 LABEL dwl.server.os="debian 8.8"
 
-# disable interactive functions
-ENV DEBIAN_FRONTEND noninteractive
-# declare locales
-ENV DWL_LOCAL_LANG en_US:en
-ENV DWL_LOCAL en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
-
-# declare main user
-ENV DWL_USER_ID 1000
-ENV DWL_USER_NAME username
-ENV DWL_USER_PASSWD secret
-# declare main user
-ENV DWL_SSH_ACCESS false
+ENV DEBIAN_FRONTEND="noninteractive" DWL_LOCAL_LANG="en_US:en" DWL_LOCAL="en_US.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8" DWL_USER_ID="1000" DWL_USER_NAME="username" DWL_USER_PASSWD="secret" ENV DWL_SSH_ACCESS="false"
 
 # update locales
-RUN ls /usr/share && localedef -i en_US -f UTF-8 en_US.UTF-8
+RUN cat /etc/locale.gen && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && locale-gen
 # Update packages
 RUN apt-get update && \
 apt-get install -y locales
