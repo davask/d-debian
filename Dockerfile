@@ -3,8 +3,7 @@ MAINTAINER davask <docker@davaskweblimited.com>
 USER root
 LABEL dwl.server.os="debian 8.8"
 
-ENV \
-DEBIAN_FRONTEND="noninteractive" \
+ENV DEBIAN_FRONTEND="noninteractive" \
 DWL_LOCAL_LANG="en_US:en" \
 DWL_LOCAL="en_US.UTF-8" \
 LANG="en_US.UTF-8" \
