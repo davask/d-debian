@@ -65,7 +65,7 @@ COPY ./build/dwl/envvar.sh \
 
 EXPOSE 6408
 
-ENTRYPOINT ["/bin/bash"]
+# ENTRYPOINT ["/bin/bash"]
 CMD ["/dwl/init.sh"]
 WORKDIR /home/admin
 RUN chown root:sudo -R /dwl
