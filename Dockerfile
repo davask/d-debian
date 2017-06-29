@@ -67,8 +67,8 @@ RUN chmod +x /dwl/init.sh
 
 EXPOSE 22
 
-ENTRYPOINT ["/bin/sh", "-c"]
-CMD ["/dwl/init.sh"]
+# ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["/dwl/init.sh && /bin/bash"]
 WORKDIR /home/admin
 RUN chown root:sudo -R /dwl
 USER admin
