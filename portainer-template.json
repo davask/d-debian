@@ -26,9 +26,6 @@
         },{
             "name": "DWL_USER_PASSWD",
             "label": "User password for ssh access [secret]"
-        },{
-            "name": "DWL_KEEP_RUNNING",
-            "label": "Keep container running [true]"
         }
     ],
     "volumes": [

@@ -11,7 +11,6 @@
 - DWL_SSH_ACCESS: 'false'
 - DWL_USER_ID: '1000'
 - DWL_USER_PASSWD: 'secret'
-- DWL_KEEP_RUNNING: 'true'
 ## Available volumes
 
 - /home/username
