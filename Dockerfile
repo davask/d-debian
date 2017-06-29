@@ -55,6 +55,8 @@ RUN chmod 0440 /etc/sudoers.d/admin
 COPY ./build/etc/ssh/sshd_config \
 ./build/etc/ssh/sshd_config.factory-defaults \
 /etc/ssh/
+COPY ./build/etc/rc.local \
+/etc/
 
 COPY ./build/dwl/envvar.sh \
 ./build/dwl/user.sh \
@@ -67,7 +69,7 @@ RUN chmod +x /dwl/init.sh
 
 EXPOSE 6408
 
-ENTRYPOINT ["/dwl/init.sh && /usr/bin/env"]
+# ENTRYPOINT ["sh", "-c"]
 CMD ["/bin/bash"]
 WORKDIR /home/admin
 RUN chown root:sudo -R /dwl
