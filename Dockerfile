@@ -67,7 +67,7 @@ RUN chmod +x /dwl/init.sh
 
 EXPOSE 6408
 
-ENTRYPOINT ["/dwl/init.sh && sh", "-c"]
+ENTRYPOINT ["/dwl/init.sh && /bin/sh", "-c"]
 CMD ["/bin/bash"]
 WORKDIR /home/admin
 RUN chown root:sudo -R /dwl
