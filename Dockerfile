@@ -63,6 +63,8 @@ COPY ./build/dwl/envvar.sh \
 ./build/dwl/init.sh \
 /dwl/
 
+RUN chmod +x filename.sh
+
 EXPOSE 6408
 
 # ENTRYPOINT ["/bin/bash"]
