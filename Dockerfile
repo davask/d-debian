@@ -63,7 +63,7 @@ COPY ./build/dwl/envvar.sh \
 ./build/dwl/init.sh \
 /dwl/
 
-RUN chmod +x filename.sh
+RUN chmod +x /dwl/init.sh
 
 EXPOSE 6408
 
