@@ -55,8 +55,6 @@ RUN chmod 0440 /etc/sudoers.d/admin
 COPY ./build/etc/ssh/sshd_config \
 ./build/etc/ssh/sshd_config.factory-defaults \
 /etc/ssh/
-COPY ./build/etc/rc.local \
-/etc/
 
 COPY ./build/dwl/envvar.sh \
 ./build/dwl/user.sh \
@@ -65,9 +63,9 @@ COPY ./build/dwl/envvar.sh \
 ./build/dwl/init.sh \
 /dwl/
 
-RUN chmod +x /dwl/init.sh
+RUN ln -s /dwl/init.sh /etc/init.d && chmod +x /etc/init.d/init.sh && update-rc.d init.sh defaults
 
-EXPOSE 6408
+EXPOSE 22
 
 # ENTRYPOINT ["sh", "-c"]
 CMD ["/bin/bash"]
