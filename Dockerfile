@@ -63,12 +63,12 @@ COPY ./build/dwl/envvar.sh \
 ./build/dwl/init.sh \
 /dwl/
 
-RUN ln -s /dwl/init.sh /etc/init.d && chmod +x /etc/init.d/init.sh && update-rc.d init.sh defaults
+RUN chmod +x /dwl/init.sh
 
 EXPOSE 22
 
-# ENTRYPOINT ["sh", "-c"]
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["/dwl/init.sh"]
 WORKDIR /home/admin
 RUN chown root:sudo -R /dwl
 USER admin
