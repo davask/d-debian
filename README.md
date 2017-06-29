@@ -2,7 +2,7 @@
 
 ## Exposed port
 
-- 6408
+- 22
 ## Default ENV values
 
 - DWL_LOCAL_LANG: 'en_US:en'
