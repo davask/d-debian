@@ -20,3 +20,4 @@
 
 ## EXTRA
 
+[ssh to chrooted jail](https://www.cyberciti.biz/faq/debian-ubuntu-restricting-ssh-user-session-to-a-directory-chrooted-jail/)

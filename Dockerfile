@@ -26,11 +26,11 @@ ENV DWL_SSH_ACCESS false
 
 RUN apt-get update && \
 apt-get install -y \
-locales \
 openssl \
 ca-certificates \
 apt-transport-https \
 software-properties-common \
+python-software-properties \
 openssh-server \
 nano \
 wget \
@@ -63,12 +63,10 @@ COPY ./build/dwl/envvar.sh \
 ./build/dwl/init.sh \
 /dwl/
 
-RUN chmod +x /dwl/init.sh
-
 EXPOSE 22
 
-# ENTRYPOINT ["/bin/sh", "-c"]
-CMD ["/bin/sh", "-c", "/dwl/init.sh && /bin/bash"]
+ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["/bin/bash /dwl/init.sh && /bin/bash"]
 WORKDIR /home/admin
-RUN chown root:sudo -R /dwl
+RUN chmod +x /dwl/init.sh && chown root:sudo -R /dwl
 USER admin
