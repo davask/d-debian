@@ -24,7 +24,7 @@ services:
     networks:
       - dwlhost
     volumes:
-      - ./volumes/home/username:/dwl/home/username
+      - ./volumes/home/host:/dwl/home/host
 
 networks:
     dwlhost:
