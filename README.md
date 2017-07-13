@@ -1,13 +1,15 @@
 # dockerfile
 
+[![[dwl] debian:8.8 license][badge-travis]](https://travis-ci.org/davask/d-debian)
 [![[dwl] debian:8.8 in prod][badge-shields]](https://hub.docker.com/r/davask/d-debian/)
-[![[dwl] debian:8.8 license][badge-fossa]](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fdavask%2Fd-debian?ref=badge_shield)
+[![[dwl] debian:8.8 license][badge-license]](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fdavask%2Fd-debian?ref=badge_shield)
 
 [![[dwl] debian:8.8 image][badge-docker]](https://hub.docker.com/r/davask/d-debian/)
 
 [badge-docker]: https://dockeri.co/image/davask/d-debian "[dwl] debian:8.8 image"
 [badge-shields]: https://img.shields.io/badge/davask%2Fd--debian-env_prod-brightgreen.svg?style=flat "[dwl] debian:8.8 in prod"
-[badge-fossa]: https://img.shields.io/badge/davask%2Fd--debian-license_MIT-brightgreen.svg?style=flat "[dwl] debian:8.8 license"
+[badge-license]: https://img.shields.io/badge/davask%2Fd--debian-license_MIT-brightgreen.svg?style=flat "[dwl] debian:8.8 license"
+[badge-travis]: https://travis-ci.org/davask/d-debian.svg?branch=8.8 "[dwl] debian:8.8 license"
 
 ## Exposed port
 
