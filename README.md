@@ -6,8 +6,8 @@
 [![[dwl] debian:8.8 image][badge-docker]](https://hub.docker.com/r/davask/d-debian/)
 
 [badge-docker]: https://dockeri.co/image/davask/d-debian "[dwl] debian:8.8 image"
-[badge-shields]: https://img.shields.io/badge/davask%2Fd--debian-env prod-brightgreen.svg?style=flat "[dwl] debian:8.8 in prod"
-[badge-fossa]: https://img.shields.io/badge/davask%2Fd--debian-license MIT-brightgreen.svg?style=flat "[dwl] debian:8.8 license"
+[badge-shields]: https://img.shields.io/badge/davask%2Fd--debian-env_prod-brightgreen.svg?style=flat "[dwl] debian:8.8 in prod"
+[badge-fossa]: https://img.shields.io/badge/davask%2Fd--debian-license_MIT-brightgreen.svg?style=flat "[dwl] debian:8.8 license"
 
 ## Exposed port
 
