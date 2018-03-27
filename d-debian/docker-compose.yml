@@ -4,20 +4,22 @@ services:
   app:
     ports:
       - 42002:22/tcp
+    env_file: .env
     environment:
       COMPOSE_PROJECT_NAME: container_name
       DWL_LOCAL_LANG: 'en_US:en'
       DWL_LOCAL: 'en_US.UTF-8'
-      DWL_USER_NAME: 'host'
-      DWL_USER_PASSWD: 'secretpasssword'
-      DWL_USER_ID: '1000'
-      DWL_SSH_ACCESS: 'false'
+      DWL_USER_ID: 1000
+      # DWL_USER_NAME host
+      # DWL_USER_PASSWD secretpassword
+      # DWL_SSH_ACCESS false
+      # DWL_SUDO_USER false
     tty: true
     stdin_open: true
     hostname: localhost
     image: davask/d-debian:8.x
     volumes:
-      - ../volumes/home/host:/home/${DWL_USER_NAME:-host}
+      - ../volumes/home/host:/home/davask
 
 # docker network create -d bridge --subnet 192.168.0.0/24 --gateway 192.168.0.1 dwlhost
-# docker-compose -f /home/$(whoami)/docker-images/base/d-debian/d-debian/docker-compose.yml up -d
+# docker-compose -f /home/$(whoami)/docker-images/images/base/d-debian/d-debian/docker-compose.yml up -d
