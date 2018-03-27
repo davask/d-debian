@@ -15,9 +15,9 @@ services:
     tty: true
     stdin_open: true
     hostname: localhost
-    image: davask/d-debian:8.8
+    image: davask/d-debian:8.x
     volumes:
-      - ./volumes/home/host:/home/${DWL_USER_NAME:-host}
+      - ../volumes/home/host:/home/${DWL_USER_NAME:-host}
 
 # docker network create -d bridge --subnet 192.168.0.0/24 --gateway 192.168.0.1 dwlhost
-# docker-compose -f /home/$(whoami)/docker-images/base/d-debian/docker-compose.yml up -d
+# docker-compose -f /home/$(whoami)/docker-images/base/d-debian/d-debian/docker-compose.yml up -d
