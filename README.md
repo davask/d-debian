@@ -1,4 +1,6 @@
 # dockerfile
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fdavask%2Fd-debian.svg?type=shield)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fdavask%2Fd-debian?ref=badge_shield)
+
 
 [![[dwl] debian:8.8 in prod][badge-shields]](https://hub.docker.com/r/davask/d-debian/)
 [![[dwl] debian:8.8 license][badge-license]](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fdavask%2Fd-debian?ref=badge_shield)
@@ -31,3 +33,7 @@
 ## EXTRA
 
 [ssh to chrooted jail](https://www.cyberciti.biz/faq/debian-ubuntu-restricting-ssh-user-session-to-a-directory-chrooted-jail/)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fdavask%2Fd-debian.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fdavask%2Fd-debian?ref=badge_large)
