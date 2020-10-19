@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-MAINTAINER davask <docker@davaskweblimited.com>
+MAINTAINER davask <admin@davask.com>
 USER root
 # Update packages
 RUN apt-get update && \
@@ -27,7 +27,6 @@ openssl \
 ca-certificates \
 apt-transport-https \
 software-properties-common \
-python-software-properties \
 openssh-server \
 nano \
 wget \
